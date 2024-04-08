@@ -22,14 +22,13 @@ const Hero = () => {
         </a>
 
         <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
-          Ship your startup in days, not weeks
+          Deep learning for natural language tasks
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          The NextJS boilerplate with all you need to build your SaaS, AI tool,
-          or any other web app. From idea to production in 5 minutes.
+          SmartSend.ai offers state of the art models for authentic speech recognition
         </p>
         <button className="btn btn-primary btn-wide">
-          Get {config.appName}
+          Create your account
         </button>
 
         <TestimonialsAvatars priority={true} />
