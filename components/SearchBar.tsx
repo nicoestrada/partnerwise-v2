@@ -11,20 +11,9 @@ export default function SearchBar() {
   const [radius, setRadius] = React.useState(16);
   const [childHeight, setChildHeight] = React.useState(28);
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 2 }} class="w-3/4 md:w-96 justify-center">
-      <Input
-        size="md"
-        placeholder="Find brands in..."
-        endDecorator={
-          <Button variant="soft" size="sm">
-            Search
-          </Button>
-        }
-        sx={{
-          '--Input-radius': `${radius}px`,
-          '--Input-decoratorChildHeight': `${childHeight}px`,
-        }}
-      />
-    </Box>
+    <label className="input input-bordered flex items-center gap-2">
+      <input type="text" className="grow" placeholder="Find brands..." />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
+    </label>
   );
 }
