@@ -7,6 +7,7 @@ import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import SearchBar from '@/components/SearchBar';
 
 export default function Home() {
   return (
@@ -15,12 +16,13 @@ export default function Home() {
         <Header />
       </Suspense>
       <main>
-        <Hero />
+        {/* <SearchBar /> */}
+        {/* <Hero />
         <Problem />
         <FeaturesAccordion />
         <Pricing />
         <FAQ />
-        <CTA />
+        <CTA /> */}
       </main>
       <Footer />
     </>

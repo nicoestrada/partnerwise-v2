@@ -8,6 +8,7 @@ import Image from "next/image";
 import ButtonSignin from "./ButtonSignin";
 import logo from "@/app/icon.png";
 import config from "@/config";
+import SearchBar from "./SearchBar";
 
 const links: {
   href: string;
@@ -41,9 +42,9 @@ const Header = () => {
   }, [searchParams]);
 
   return (
-    <header className="bg-base-200">
+    <header className="bg-transparent">
       <nav
-        className="container flex items-center justify-between px-8 py-4 mx-auto"
+        className="container flex items-center justify-between px-8 py-4 mx-auto top-0 z-50"
         aria-label="Global"
       >
         {/* Your logo/name on large screens */}
@@ -62,9 +63,10 @@ const Header = () => {
               width={32}
               height={32}
             />
-            <span className="font-extrabold text-lg">{config.appName}</span>
           </Link>
         </div>
+        <SearchBar />
+
         {/* Burger button to open menu on mobile */}
         <div className="flex lg:hidden">
           <button
@@ -91,7 +93,7 @@ const Header = () => {
         </div>
 
         {/* Your links on large screens */}
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
+        {/* <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
           {links.map((link) => (
             <Link
               href={link.href}
@@ -102,7 +104,7 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-        </div>
+        </div> */}
 
         {/* CTA on large screens */}
         <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
@@ -129,7 +131,6 @@ const Header = () => {
                 width={32}
                 height={32}
               />
-              <span className="font-extrabold text-lg">{config.appName}</span>
             </Link>
             <button
               type="button"

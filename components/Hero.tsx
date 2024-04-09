@@ -22,13 +22,13 @@ const Hero = () => {
         </a>
 
         <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
-          Deep learning for natural language tasks
+          Discover your next collab in seconds
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          SmartSend.ai offers state of the art models for authentic speech recognition
+          The easiest way to find brands to pitch to and partner with, all in one place.
         </p>
         <button className="btn btn-primary btn-wide">
-          Create your account
+          Browse brands now
         </button>
 
         <TestimonialsAvatars priority={true} />
