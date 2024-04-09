@@ -8,7 +8,6 @@ import Image from "next/image";
 import ButtonSignin from "./ButtonSignin";
 import logo from "@/app/icon.png";
 import config from "@/config";
-import SearchBar from "./SearchBar";
 
 const links: {
   href: string;
@@ -65,7 +64,6 @@ const Header = () => {
             />
           </Link>
         </div>
-        <SearchBar />
 
         {/* Burger button to open menu on mobile */}
         <div className="flex lg:hidden">
@@ -93,7 +91,7 @@ const Header = () => {
         </div>
 
         {/* Your links on large screens */}
-        {/* <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
+        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
           {links.map((link) => (
             <Link
               href={link.href}
@@ -104,7 +102,7 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-        </div> */}
+        </div>
 
         {/* CTA on large screens */}
         <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
