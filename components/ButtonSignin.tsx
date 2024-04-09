@@ -10,7 +10,7 @@ import config from "@/config";
 // It automatically redirects user to callbackUrl (config.auth.callbackUrl) after login, which is normally a private page for users to manage their accounts.
 // If the user is already logged in, it will show their profile picture & redirect them to callbackUrl immediately.
 const ButtonSignin = ({
-  text = "Browse brands",
+  text = "Get started",
   extraStyle,
 }: {
   text?: string;
@@ -21,7 +21,7 @@ const ButtonSignin = ({
 
   const handleClick = () => {
     if (status === "authenticated") {
-      router.push(config.auth.callbackUrl);
+      router.push("/dashboard");
     } else {
       signIn(undefined, { callbackUrl: config.auth.callbackUrl });
     }
@@ -30,8 +30,8 @@ const ButtonSignin = ({
   if (status === "authenticated") {
     return (
       <Link
-        href={config.auth.callbackUrl}
-        className={`btn ${extraStyle ? extraStyle : ""}`}
+        href="/dashboard"
+        className={`btn bg-base-100 border`}
       >
         {session.user?.image ? (
           <img
@@ -47,7 +47,7 @@ const ButtonSignin = ({
             {session.user?.name?.charAt(0) || session.user?.email?.charAt(0)}
           </span>
         )}
-        {session.user?.name || "Account"}
+        {"Account"}
       </Link>
     );
   }
