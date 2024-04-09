@@ -1,14 +1,16 @@
 import Image from "next/image";
 import TestimonialsAvatars from "./TestimonialsAvatars";
 import config from "@/config";
-import SearchBar from "./SearchBar";
 import BrandFeedLayout from "./BrandFeedLayout";
 
 const Hero = () => {
   return (
     <div>
-      <SearchBar />
       <BrandFeedLayout />
+      <div className="flex justify-center gap-2 py-12 relative">
+        <h2 className="absolute font-bold text-2xl md:text-4xl tracking-tight mb-8 md:mb-12">Continue exploring brands</h2>
+        <button className="btn bg-zinc-800 mt-16 text-slate-50 m-4 hover:bg-zinc-600">Show more</button>
+      </div>
     </div>
     // <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
     //   <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start">
