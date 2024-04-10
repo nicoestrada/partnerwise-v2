@@ -15,7 +15,7 @@ export default async function Dashboard() {
       <section className="max-w-xl mx-auto space-y-8">
         <ButtonAccount />
         <h1 className="text-3xl md:text-4xl font-bold">Account</h1>
-        <p><strong>{session?.user?.name}</strong>, {session?.user?.email}</p>
+        <p><strong>{session?.user?.name !== undefined ? session?.user?.name + "," : ""}</strong> {session?.user?.email}</p>
         <p></p>
       </section>
     </main>
