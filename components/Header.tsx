@@ -9,6 +9,7 @@ import ButtonSignin from "./ButtonSignin";
 import logo from "@/app/icon.png";
 import config from "@/config";
 import SearchBar from "./SearchBar";
+import Carousel from "./Carousel";
 
 const links: {
   href: string;
@@ -42,7 +43,7 @@ const Header = () => {
   }, [searchParams]);
 
   return (
-    <header className="bg-base-100 z-40 sticky top-0 pb-5">
+    <header className="bg-base-100 z-40 sticky top-0">
       <nav
         className="container flex items-center justify-between px-8 py-4 mx-auto top-0 z-50"
         aria-label="Global"
@@ -108,7 +109,9 @@ const Header = () => {
         {/* CTA on large screens */}
         <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
       </nav>
+
       <SearchBar />
+      <Carousel />
 
       {/* Mobile menu, show/hide based on menu state. */}
       <div className={`relative z-50 ${isOpen ? "" : "hidden"}`}>

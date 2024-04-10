@@ -21,7 +21,7 @@ const ButtonSignin = ({
 
   const handleClick = () => {
     if (status === "authenticated") {
-      router.push("/dashboard");
+      router.push("/account");
     } else {
       signIn(undefined, { callbackUrl: config.auth.callbackUrl });
     }
@@ -30,7 +30,7 @@ const ButtonSignin = ({
   if (status === "authenticated") {
     return (
       <Link
-        href="/dashboard"
+        href="/account"
         className={`btn bg-base-100 border`}
       >
         {session.user?.image ? (
