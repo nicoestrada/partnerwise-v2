@@ -1,23 +1,33 @@
-import connectMongo from '../../../libs/mongoose.ts';
-import Test from '../../../models/testModel';
+import { NextResponse, NextRequest } from "next/server";
+import connectMongo from "@/libs/mongoose";
+import Brand from "@/models/Brand";
 
-/**
- * @param {import('next').NextApiRequest} req
- * @param {import('next').NextApiResponse} res
- */
-export default async function addTest(req, res) {
-  try {
-    console.log('CONNECTING TO MONGO');
-    await connectMongo();
-    console.log('CONNECTED TO MONGO');
+// This route is used to store the leads that are generated from the landing page.
+// The API call is initiated by <ButtonLead /> component
+// Duplicate emails just return 200 OK
+export async function getBrands(req: NextRequest, res: NextResponse) {
+    const industry = req.query.industry;
 
-    console.log('CREATING DOCUMENT');
-    const test = await Test.create(req.body);
-    console.log('CREATED DOCUMENT');
-
-    res.json({ test });
-  } catch (error) {
-    console.log(error);
-    res.json({ error });
-  }
+    try {
+      await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+      const allBrands = await Brand.aggregate([
+        {
+          $match: {
+            Category: industry // assuming Category is a field in your Brand model
+          }
+        },
+        { 
+          $sample: { 
+            size: 21 
+          } 
+        } 
+      ]);
+  
+      res.json(allBrands);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    } finally {
+      mongoose.disconnect();
+    }
 }
