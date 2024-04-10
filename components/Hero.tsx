@@ -6,8 +6,7 @@ import BrandFeedLayout from "./BrandFeedLayout";
 const Hero = () => {
   return (
     <div>
-      <BrandFeedLayout />
-      <div className="flex justify-center gap-2 py-12 relative">
+      <div className="flex justify-center gap-2 py-8 relative">
         <h2 className="absolute font-bold text-2xl md:text-4xl tracking-tight mb-8 md:mb-12">Continue exploring brands</h2>
         <button className="btn bg-zinc-800 mt-16 text-slate-50 m-4 hover:bg-zinc-600">Show more</button>
       </div>

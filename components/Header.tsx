@@ -10,6 +10,7 @@ import logo from "@/app/icon.png";
 import config from "@/config";
 import SearchBar from "./SearchBar";
 import Carousel from "./Carousel";
+import Tabs from "./Tabs";
 
 const links: {
   href: string;
@@ -111,7 +112,8 @@ const Header = () => {
       </nav>
 
       <SearchBar />
-      <Carousel />
+
+      {/* <Carousel /> */}
 
       {/* Mobile menu, show/hide based on menu state. */}
       <div className={`relative z-50 ${isOpen ? "" : "hidden"}`}>
