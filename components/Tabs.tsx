@@ -1,8 +1,11 @@
 "use client";
 import React, { useState } from 'react';
 import BrandFeedLayout from './BrandFeedLayout';
+import connectMongo from '@/libs/mongoose';
+import Brand from '@/models/Brand';
 
 const Tabs: React.FC = () => {
+
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index: number) => {
