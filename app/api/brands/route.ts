@@ -1,6 +1,7 @@
 import clientPromise from "@/libs/mongo";
 import connectMongo from "@/libs/mongoose";
 import Brand from "@/models/Brand";
+import { MongoClient } from "mongodb";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -17,31 +18,37 @@ export async function POST(req: NextRequest) {
 
 
 export async function GET() {
-    await connectMongo();
-    console.log("Connected")
-    const brands = await Brand.find({});
-    return NextResponse.json({ brands })
-    // try {
-    //     const client = await clientPromise;
-    //     const db = client.db("app-data");
-    //     const returnedBrands = await db
-    //         .collection("brands")
-    //         .aggregate([
-    //             {
-    //                 $match: {
-    //                     Category: "Apparel" // assuming Category is a field in your Brand model
-    //                 }
-    //             },
-    //             {
-    //                 $sample: {
-    //                     size: 1
-    //                 }
-    //             }
-    //         ]);
+    const client = new MongoClient(process.env.MONGODB_URI);
+  // const brands = JSON.parse(req.query.brands);
 
-    //     res.json(returnedBrands);
+  const industry = "Apparel";
 
-    // } catch (error) {
-    //     console.error(error);
-    // }
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const brands = database.collection("brands");
+
+    const allBrands = await brands.aggregate([ 
+        {
+          $match: {
+            Category: { $eq: industry },
+            "OG image": { $ne: "" },
+          }
+        },
+        { 
+          $sample: { 
+            size: 21
+          } 
+        } 
+      ])
+      .toArray();
+
+     return NextResponse.json(allBrands);
+
+    } catch (error) {
+        console.log( error );
+    } finally {
+        await client.close();
+    }
 }
+
