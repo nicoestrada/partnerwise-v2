@@ -1,6 +1,7 @@
-"use client"
-
 export default function Card({ brands }) {
+    if (!brands || brands.length === 0) {
+        return <div>Loading...</div>; // Add a loading indicator
+    }
 
     return (
         <>
@@ -9,8 +10,8 @@ export default function Card({ brands }) {
                     <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-lg" /></figure>
                     <div className="card-body bg-transparent p-5 flex">
                         <h2 className="card-title  flex justify-between">
-                        {brand["URL"]}
-                        <div className="badge badge-secondary">NEW</div>
+                            {brand["URL"]}
+                            <div className="badge badge-secondary">NEW</div>
                         </h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
                         <div className="card-actions justify-start">
@@ -21,6 +22,5 @@ export default function Card({ brands }) {
                 </div>
             ))}
         </>
-        
-    )
+    );
 }

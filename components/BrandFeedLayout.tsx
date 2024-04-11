@@ -1,25 +1,25 @@
-"use client"
-
-import connectMongo from "@/libs/mongoose";
-import Brand from "@/models/Brand";
-import Card from "./Card"
 import { useEffect, useState } from "react";
-
+import Card from "./Card";
 
 export default function BrandFeedLayout() {
-    const fetchBrands = async () => {
-        const res = await fetch("/api/brands");
-        const brands = await res.json();
-        return brands;
-    }
-
     const [brands, setBrands] = useState([]);
 
     useEffect(() => {
-        fetchBrands().then((brands) => {
-            setBrands(brands);
-        });
-    }, [])
+        const fetchBrands = async () => {
+            try {
+                const res = await fetch("http://localhost:3000/api/brands"); // Use relative URL assuming your API is served from the same origin
+                if (!res.ok) {
+                    throw new Error("Failed to fetch brands");
+                }
+                const brandsData = await res.json();
+                setBrands(brandsData);
+            } catch (error) {
+                console.error("Error fetching brands:", error);
+            }
+        };
+
+        fetchBrands();
+    }, []);
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 mx-auto px-8 gap-4 md:gap-6 my-8 mx-8">
@@ -27,5 +27,5 @@ export default function BrandFeedLayout() {
                 <Card brands={brands} />
             </div>
         </div>
-    )
+    );
 }
