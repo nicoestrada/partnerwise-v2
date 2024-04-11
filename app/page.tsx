@@ -18,12 +18,6 @@ export default function Home() {
       <main>
         <Tabs />
         <Hero />
-        {/* 
-        <Problem />
-        <FeaturesAccordion />
-        <Pricing />
-        <FAQ />
-        <CTA /> */}
       </main>
       <Footer />
     </>
