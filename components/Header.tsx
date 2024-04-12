@@ -43,7 +43,7 @@ const Header = () => {
   }, [searchParams]);
 
   return (
-    <header className="bg-base-100 z-40 top-0 sticky border-b">
+    <header className="bg-base-100 z-40 top-0 sticky border-b" data-scroll="1">
       <nav
         className="container flex items-center justify-between px-8 py-4 mx-auto top-0 z-50"
         aria-label="Global"
