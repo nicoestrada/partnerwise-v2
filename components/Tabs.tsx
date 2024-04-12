@@ -1,16 +1,49 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BrandFeedLayout from './BrandFeedLayout';
-import connectMongo from '@/libs/mongoose';
-import Brand from '@/models/Brand';
+
+const categoriesMap: Map<number, string> = new Map([
+  [0, "Apparel"],
+  [1, "Antiques & Collectibles"]
+]);
 
 const Tabs: React.FC = () => {
 
   const [activeTab, setActiveTab] = useState(0);
 
+  const [brands, setBrands] = useState([]);
+  
+  const fetchData = async () => {
+    const data = await getBrands();
+    setBrands(data);
+  };
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const handleTabClick = (index: number) => {
     setActiveTab(index);
+    fetchData();
   };
+
+  const getBrands = async () => {
+    try {
+      const query = new URLSearchParams({
+        industry: categoriesMap.get(activeTab)
+      });
+      const res = await fetch(`http://localhost:3000/api/brands?${query}`);
+      if (!res.ok) {
+          throw new Error('Failed to fetch brands');
+      }
+      return res.json();
+    } catch (err) {
+        console.error(err);
+        return []; // Return an empty array in case of error
+    }
+  };
+  
 
   return (
     <div className="tabs flex-col relative snap-start mt-6">
@@ -99,9 +132,11 @@ const Tabs: React.FC = () => {
       </div>
       <div className="mx-auto justify-center mt-4">
         <div className={`${activeTab === 0 ? 'block' : 'hidden'}`}>
-            <BrandFeedLayout />
+          <BrandFeedLayout brands={brands} />
         </div>
-        <div className={`${activeTab === 1 ? 'block' : 'hidden'}`}>Tab content 2</div>
+        <div className={`${activeTab === 1 ? 'block' : 'hidden'}`}>
+          <BrandFeedLayout brands={brands} />
+        </div>
         <div className={`${activeTab === 2 ? 'block' : 'hidden'}`}>Tab content 3</div>
         <div className={`${activeTab === 3 ? 'block' : 'hidden'}`}>Tab content 4</div>
         <div className={`${activeTab === 4 ? 'block' : 'hidden'}`}>Tab content 5</div>
