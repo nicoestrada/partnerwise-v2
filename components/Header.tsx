@@ -9,7 +9,6 @@ import ButtonSignin from "./ButtonSignin";
 import logo from "@/app/icon.png";
 import config from "@/config";
 import SearchBar from "./SearchBar";
-import Carousel from "./Carousel";
 import Tabs from "./Tabs";
 
 const links: {
@@ -17,8 +16,8 @@ const links: {
   label: string;
 }[] = [
   {
-    href: "/#jobs",
-    label: "Jobs",
+    href: "/",
+    label: "Home",
   },
   {
     href: "/#categories",
@@ -44,7 +43,7 @@ const Header = () => {
   }, [searchParams]);
 
   return (
-    <header className="bg-base-100 z-40 top-0">
+    <header className="bg-base-100 z-40 top-0 sticky border-b">
       <nav
         className="container flex items-center justify-between px-8 py-4 mx-auto top-0 z-50"
         aria-label="Global"
@@ -110,8 +109,6 @@ const Header = () => {
         {/* CTA on large screens */}
         <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
       </nav>
-
-      <SearchBar />
 
       {/* <Carousel /> */}
 
