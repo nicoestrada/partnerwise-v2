@@ -10,14 +10,12 @@ const categoriesMap: Map<number, string> = new Map([
 const Tabs: React.FC = () => {
 
   const [activeTab, setActiveTab] = useState(0);
-
   const [brands, setBrands] = useState([]);
   
   const fetchData = async () => {
     const data = await getBrands();
     setBrands(data);
   };
-
 
   useEffect(() => {
     fetchData();

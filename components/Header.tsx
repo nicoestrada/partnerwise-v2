@@ -9,28 +9,33 @@ import logo from "@/app/icon.png";
 import config from "@/config";
 import SearchBar from "./SearchBar";  // Assuming SearchBar is properly imported and ready to be used.
 import Tabs from "./Tabs";
+import { useSession } from "next-auth/react";
 
 const links = [
   {
-    href: "/",
-    label: "Home",
+    href: "/pricing",
+    label: "Pricing",
   },
   {
-    href: "/categories",
-    label: "Categories",
+    href: "/about",
+    label: "About",
   },
   {
-    href: "/faq",
-    label: "FAQ",
+    href: "/blog",
+    label: "Blog",
   },
 ];
 
-const cta = <ButtonSignin extraStyle="btn bg-zinc-800 text-slate-50 hover:bg-zinc-600" />;
+const cta = <ButtonSignin extraStyle="btn bg-zinc-800 text-slate-50 hover:bg-zinc-600 shadow-xl" />;
+const logInButton = <Link href="/api/auth/signin?callbackUrl=%2F" className="link link-hover mr-8 font-medium" title="Log in">Log In</Link>;
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [logInButtonDisplay, setLogInButtonDisplay] = useState(true)
+
   const searchParams = useSearchParams();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +74,7 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
+        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center font-medium">
           {links.map((link) => (
             <Link href={link.href} key={link.href} className="link link-hover" title={link.label}>
               {link.label}
@@ -77,7 +82,11 @@ const Header = () => {
           ))}
         </div>
 
-        <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
+        
+        <div className="hidden lg:flex lg:justify-end lg:flex-1 items-center">
+          {session?.user?.email !== undefined ? "" : logInButton}
+          {cta}
+        </div>
       </nav>
       {/* Mobile menu */}
       <div className={`relative z-50 ${isOpen ? "" : "hidden"}`}>
