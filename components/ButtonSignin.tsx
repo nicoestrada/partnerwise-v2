@@ -31,7 +31,7 @@ const ButtonSignin = ({
     return (
       <Link
         href="/account"
-        className={`btn bg-base-100 border`}
+        className={`btn bg-base-100 border shadow-xl`}
       >
         {session.user?.image ? (
           <img
