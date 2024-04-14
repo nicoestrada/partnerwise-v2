@@ -7,6 +7,11 @@ const categoriesMap: Map<number, string> = new Map([
   [1, "Antiques & Collectibles"],
   [2, "Autos & Vehicles"],
   [3, "Beauty & Fitness"],
+  [4, "Books & Literature"],
+  [5, "Business & Industrial"],
+  [6, "Consumer Electronics"],
+  [7, "Finance"],
+  [8, "Food & Drink"]
 ]);
 
 const Tabs: React.FC = () => {
@@ -16,7 +21,7 @@ const Tabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const [brands, setBrands] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getBrands = async () => {
     try {
@@ -182,11 +187,21 @@ const Tabs: React.FC = () => {
         <div className={`${activeTab === 4 ? 'block' : 'hidden'}`}>
           <BrandFeedLayout brands={brands} />
         </div>
-        <div className={`${activeTab === 5 ? 'block' : 'hidden'}`}>Tab content 6</div>
-        <div className={`${activeTab === 6 ? 'block' : 'hidden'}`}>Tab content 7</div>
-        <div className={`${activeTab === 7 ? 'block' : 'hidden'}`}>Tab content 8</div>
-        <div className={`${activeTab === 8 ? 'block' : 'hidden'}`}>Tab content 9</div>
-        <div className={`${activeTab === 9 ? 'block' : 'hidden'}`}>Tab content 10</div>
+        <div className={`${activeTab === 5 ? 'block' : 'hidden'}`}>
+          <BrandFeedLayout brands={brands} />
+        </div>
+        <div className={`${activeTab === 6 ? 'block' : 'hidden'}`}>
+          <BrandFeedLayout brands={brands} />
+        </div>
+        <div className={`${activeTab === 7 ? 'block' : 'hidden'}`}>
+          <BrandFeedLayout brands={brands} />
+        </div>
+        <div className={`${activeTab === 8 ? 'block' : 'hidden'}`}>
+          <BrandFeedLayout brands={brands} />
+        </div>
+        <div className={`${activeTab === 9 ? 'block' : 'hidden'}`}>
+          <BrandFeedLayout brands={brands} />
+        </div>
 
       </div> : loadingIndicator
       }
