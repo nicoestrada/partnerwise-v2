@@ -12,7 +12,7 @@ export default function Card({ brand }) {
                         </svg>
                     </div>        
                 </figure>
-                <div className="grid grid-cols-2 gap-4 content-start">
+                <div className="grid grid-cols-2 gap-4 justify-items-start left-0">
                     <h2 className="font-semibold p-2">{brand["URL"].trimStart()}</h2>
                     <div className="p-2 grid grid-cols-2 text-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 ml-28">
@@ -23,9 +23,11 @@ export default function Card({ brand }) {
                         </p>
                     </div>
                 </div>
-                <p className="text-sm ml-2">Est. revenue: {brand["Estimated annual revenue (lower bound)"].trim()}</p>
-                <div className="card-actions justify-start p-2">
+                <div className="justify-items-start">
+                    <p className="text-sm text-start p-2">Est. revenue: {brand["Estimated annual revenue (lower bound)"].trim()}</p>
+
                 </div>
+
             </div>
         </>
     );

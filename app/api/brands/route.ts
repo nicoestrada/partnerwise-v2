@@ -19,8 +19,6 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   const client = new MongoClient(process.env.MONGODB_URI);
 
-  // const industry = "Apparel"
-
   try {
     await client.connect();
     console.log("connected")

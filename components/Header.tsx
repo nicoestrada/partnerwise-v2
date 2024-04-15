@@ -10,6 +10,7 @@ import config from "@/config";
 import SearchBar from "./SearchBar";  // Assuming SearchBar is properly imported and ready to be used.
 import Tabs from "./Tabs";
 import { useSession } from "next-auth/react";
+import ButtonAccount from "./ButtonAccount";
 
 const links = [
   {
@@ -26,7 +27,7 @@ const links = [
   },
 ];
 
-const cta = <ButtonSignin extraStyle="btn bg-zinc-800 text-slate-50 hover:bg-zinc-600 shadow-xl" />;
+const cta = <ButtonAccount />;
 const logInButton = <Link href="/api/auth/signin?callbackUrl=%2F" className="link link-hover mr-8 font-medium" title="Log in">Log In</Link>;
 
 const Header = () => {
@@ -59,11 +60,12 @@ const Header = () => {
           </Link>
         </div>
         {/* Conditionally render the SearchBar in the navigation bar when user has scrolled down */}
-        {hasScrolled && (
+        {/* {hasScrolled && (
           <div className="container mx-auto md:hidden lg:hidden">
             <SearchBar />
+            
           </div>
-        )}
+        )} */}
 
         <div className="flex lg:hidden">
           <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5" onClick={() => setIsOpen(!isOpen)}>
@@ -74,14 +76,16 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center font-medium">
+        <div className="hidden lg:flex lg:justify-center lg:gap-12 md:gap-1 lg:items-center font-medium">
           {links.map((link) => (
             <Link href={link.href} key={link.href} className="link link-hover" title={link.label}>
               {link.label}
             </Link>
           ))}
+          {hasScrolled && (
+            <SearchBar />  
+          )}
         </div>
-
         
         <div className="hidden lg:flex lg:justify-end lg:flex-1 items-center">
           {session?.user?.email !== undefined ? "" : logInButton}
@@ -115,7 +119,7 @@ const Header = () => {
               </div>
             </div>
             <div className="divider"></div>
-            <div className="flex flex-col">{cta}</div>
+            <div className="flex flex-col">{session?.user?.email !== undefined ? cta : logInButton}</div>
           </div>
         </div>
       </div>

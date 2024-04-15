@@ -17,6 +17,7 @@ module.exports = {
         wiggle: "wiggle 1.5s ease-in-out infinite",
         popup: "popup 0.25s ease-in-out",
         shimmer: "shimmer 3s ease-out infinite alternate",
+        'spin-slow': 'spin .5s linear infinite',
       },
       keyframes: {
         opacity: {
