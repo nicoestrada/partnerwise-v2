@@ -83,7 +83,7 @@ const Header = () => {
             </Link>
           ))}
           {hasScrolled && (
-            <SearchBar />  
+            <SearchBar />
           )}
         </div>
         
