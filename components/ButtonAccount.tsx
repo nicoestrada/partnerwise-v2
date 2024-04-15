@@ -58,7 +58,7 @@ const ButtonAccount = () => {
                 height={24}
               />
             ) : (
-              <span className="w-6 h-6 bg-purple-400 flex justify-center items-center rounded-full shrink-0">
+              <span className="w-6 h-6 bg-orange-400 flex justify-center items-center rounded-full shrink-0">
                 {session?.user?.name?.charAt(0) ||
                   session?.user?.email?.charAt(0)}
               </span>
