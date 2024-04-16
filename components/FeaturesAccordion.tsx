@@ -206,7 +206,7 @@ const Media = ({ feature }: { feature: Feature }) => {
 
 // A component to display 2 to 5 features in an accordion.
 // By default, the first feature is selected. When a feature is clicked, the others are closed.
-const FeaturesAccordion = () => {
+const FeaturesAccordion = ({ brand }) => {
   const [featureSelected, setFeatureSelected] = useState<number>(0);
 
   return (
@@ -216,9 +216,9 @@ const FeaturesAccordion = () => {
     >
       <div className="px-8">
         <h2 className="font-extrabold text-4xl lg:text-6xl tracking-tight mb-12 md:mb-24">
-          All you need to ship your startup fast
+          All you need to know about {brand["Store name"]}
           <span className="bg-neutral text-neutral-content px-2 md:px-4 ml-1 md:ml-1.5 leading-relaxed whitespace-nowrap">
-            and get profitable
+            and their partners
           </span>
         </h2>
         <div className=" flex flex-col md:flex-row gap-12 md:gap-24">

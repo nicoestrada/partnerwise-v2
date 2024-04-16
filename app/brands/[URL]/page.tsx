@@ -1,12 +1,13 @@
 "use client";
-import BrandHero from "@/components/BrandHero";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Testimonials11 from "@/components/Testimonials11";
-import { useEffect, useState } from "react";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
-export default function BrandPage({ params }) {
+import { useEffect, useState } from "react";
+import FeaturesAccordion from "@/components/FeaturesAccordion";
+
+export default function BrandPage({ params }: {params: {URL: string}}) {
     const [brand, setBrand] = useState([]); 
 
     const getBrand = async () => {
@@ -16,7 +17,7 @@ export default function BrandPage({ params }) {
             });
             const res = await fetch(`http://localhost:3000/api/brands?${query}`);
             if (!res.ok) {
-                throw new Error('Failed to fetch info about ', params.URL);
+                throw new Error('Failed to fetch info about this brand');
             }
             return res.json();
 
@@ -45,9 +46,9 @@ export default function BrandPage({ params }) {
     return (
         <>
             <Header />
-            <div>
-                Brand: {brand["URL"]}
-            </div>
+            <FeaturesAccordion brand={brand} />
+            <Testimonials11 brand={brand} />
+            <FAQ brand={brand} />
             <Footer />
         </>
     );

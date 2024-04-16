@@ -1,8 +1,6 @@
-import clientPromise from "@/libs/mongo";
 import connectMongo from "@/libs/mongoose";
 import Brand from "@/models/Brand";
 import { MongoClient } from "mongodb";
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -30,32 +28,18 @@ export async function GET(req: NextRequest) {
     console.log("industry is ", industry)
     console.log("URL is ", url)
 
-    const allBrands = await brands.aggregate([ 
-        {
-          $match: {
-            Category: { $eq: industry },
-            "OG image": { $ne: "" },
-          }
-        },
-        { 
-          $sample: { 
-            size: 21
-          } 
-        } 
-      ])
-      .toArray();
-
-    const findOneBrand = await brands.findOne([
-      {
-        $match: {
-          URL: { $eq: url }
-        }
-      }
-    ])
-    
-
-     return NextResponse.json(industry !== null ? allBrands : findOneBrand);
-
+    if (industry) {
+      const allBrands = await brands.aggregate([
+        { $match: { Category: { $eq: industry }, "OG image": { $ne: "" } }}, { $sample: { size: 21 }}
+      ]).toArray();
+      return new NextResponse(JSON.stringify(allBrands), { status: 200 });
+    } else if (url) {
+      const findOneBrand = await brands.findOne({ URL: { $eq: url } });
+      return new NextResponse(JSON.stringify(findOneBrand), { status: 200 });
+    } else {
+      return new NextResponse('No industry or URL specified', { status: 400 });
+    }
+  
     } catch (error) {
         console.log( error );
     } finally {

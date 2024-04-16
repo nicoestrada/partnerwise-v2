@@ -359,19 +359,19 @@ const VideoTestimonial = ({ i }: { i: number }) => {
   );
 };
 
-const Testimonials11 = () => {
+const Testimonials11 = ({ brand }) => {
   return (
     <section className="bg-base-200" id="testimonials">
       <div className="py-24 px-8 max-w-7xl mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
             <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
-              See what people are saying about this brand
+              See what people are saying about {brand["Store name"]}
             </h2>
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
             Don&apos;t take our word for it. Here&apos;s what they have to say
-            about {config.appName}.
+            about {brand.URL}.
           </p>
         </div>
 
