@@ -4,37 +4,12 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import type { JSX } from "react";
 
-// <FAQ> component is a lsit of <Item> component
-// Just import the FAQ & add your FAQ content to the const faqList arrayy below.
-
 interface FAQItemProps {
   question: string;
   answer: JSX.Element;
 }
 
-const faqList: FAQItemProps[] = [
-  {
-    question: "What do I get exactly?",
-    answer: <div className="space-y-2 leading-relaxed">Loreum Ipseum</div>,
-  },
-  {
-    question: "Can I get a refund?",
-    answer: (
-      <p>
-        Yes! You can request a refund within 7 days of your purchase. Reach out
-        by email.
-      </p>
-    ),
-  },
-  {
-    question: "I have another question",
-    answer: (
-      <div className="space-y-2 leading-relaxed">Cool, contact us by email</div>
-    ),
-  },
-];
-
-const FaqItem = ({ item }: { item: FAQItemProps }) => {
+const FaqItem = ({ item }: { item: FAQItemProps, brand: [] }) => {
   const accordion = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -94,9 +69,31 @@ const FaqItem = ({ item }: { item: FAQItemProps }) => {
   );
 };
 
-const FAQ = ({ brand }) => {
+const FAQ = ({ brand }: {brand: []}) => {
+
+  const faqList: FAQItemProps[] = [
+    {
+      question: "Are they hiring UGC creators?",
+      answer: <div className="space-y-2 leading-relaxed">They could be looking to work with creators in the {brand.Category} niche</div>,
+    },
+    {
+      question: "Who can I reach out to?",
+      answer: (
+        <p>
+          Their support email is {brand["Emails from website"] || "not found"}
+        </p>
+      ),
+    },
+    {
+      question: "I have another question",
+      answer: (
+        <div className="space-y-2 leading-relaxed">Cool, contact us by email or post a review</div>
+      ),
+    },
+  ];
+
   return (
-    <section className="bg-base-200" id="faq">
+    <section className="bg-base-100" id="faq">
       <div className="py-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
         <div className="flex flex-col text-left basis-1/2">
           <p className="inline-block font-semibold text-primary mb-4">FAQ</p>
@@ -108,7 +105,7 @@ const FAQ = ({ brand }) => {
 
         <ul className="basis-1/2">
           {faqList.map((item, i) => (
-            <FaqItem key={i} item={item} />
+            <FaqItem key={i} item={item} brand={brand} />
           ))}
         </ul>
       </div>

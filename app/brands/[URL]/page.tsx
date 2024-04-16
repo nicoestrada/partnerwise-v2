@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 import { useEffect, useState } from "react";
-import FeaturesAccordion from "@/components/FeaturesAccordion";
+import BrandHero from "@/components/BrandHero";
 
 export default function BrandPage({ params }: {params: {URL: string}}) {
     const [brand, setBrand] = useState([]); 
@@ -46,8 +46,7 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
     return (
         <>
             <Header />
-            <FeaturesAccordion brand={brand} />
-            <Testimonials11 brand={brand} />
+            <BrandHero brand={brand} />
             <FAQ brand={brand} />
             <Footer />
         </>
