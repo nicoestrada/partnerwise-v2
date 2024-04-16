@@ -103,7 +103,7 @@ const Tabs: React.FC = () => {
 
   return (
     <div className="tabs flex-col relative mt-6 text-center overflow-x-auto whitespace-nowrap">
-      <div ref={tabContainerRef} className="flex overflow-x-auto border-b border-gray-200 mx-auto bg-base-100 w-full whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-400">
+      <div ref={tabContainerRef} className="flex overflow-x-auto border-b border-gray-200 mx-auto bg-base-100 w-full whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-40">
         <button
           onClick={() => handleTabClick(0)}
           className={`px-4 py-2 ml-2 font-medium ${

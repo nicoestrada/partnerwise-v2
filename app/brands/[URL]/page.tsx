@@ -4,13 +4,16 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Testimonials11 from "@/components/Testimonials11";
 
-export default function Brands() {
+export default function BrandPage({ params }: { params: { URL: string } }) {
     return (
         <>
             <Header />
-            <BrandHero />
+            <div>
+                Brand: {params.URL}
+            </div>
+            {/* <BrandHero />
             <Testimonials11 />
-            <FAQ />
+            <FAQ /> */}
             <Footer />
         </>
     )
