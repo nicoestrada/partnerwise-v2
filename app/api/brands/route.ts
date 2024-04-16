@@ -24,8 +24,12 @@ export async function GET(req: NextRequest) {
     console.log("connected")
     const database = client.db("app-data");
     const brands = database.collection("brands");
-    const industry = req.nextUrl.searchParams.get('industry');
-    console.log("industry is " + industry)
+    const industry = req.nextUrl?.searchParams?.get('industry');
+    const url = req.nextUrl?.searchParams?.get('URL');
+
+    console.log("industry is ", industry)
+    console.log("URL is ", url)
+
     const allBrands = await brands.aggregate([ 
         {
           $match: {
@@ -41,7 +45,16 @@ export async function GET(req: NextRequest) {
       ])
       .toArray();
 
-     return NextResponse.json(allBrands);
+    const findOneBrand = await brands.findOne([
+      {
+        $match: {
+          URL: { $eq: url }
+        }
+      }
+    ])
+    
+
+     return NextResponse.json(industry !== null ? allBrands : findOneBrand);
 
     } catch (error) {
         console.log( error );
