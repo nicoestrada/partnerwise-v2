@@ -9,6 +9,7 @@ import BrandHero from "@/components/BrandHero";
 import TestimonialsAvatars from "@/components/TestimonialsAvatars";
 import RelatedCategories from "@/components/RelatedCategories";
 import Link from "next/link";
+import PitchGenerator from "@/components/PitchGenerator";
 
 export default function BrandPage({ params }: {params: {URL: string}}) {
     const [brand, setBrand] = useState([]); 
@@ -51,7 +52,7 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
             <Header />
             <div className="max-w-screen-xl mx-auto p-5">
                 <div className="flex p-4 justify-between items-center">
-                    <h2 className="text-3xl font-semibold">{brand["Store name"]}</h2>
+                    <h2 className="text-md font-bold">{brand["URL"]?.toUpperCase()}</h2>
                     <div className="flex items-center space-x-4"> 
                         <div className="flex flex-row items-center font-medium"> 
                             <Link href={`https://` + brand["URL"]} className="hover:border-b hover:border-gray-800 flex items-center">
@@ -80,13 +81,8 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
                     </div>
                 </div>
             </div>
-            {/* <div className="flex flex-col max-w-screen-xl mx-auto p-5 lg:flex-row">
-                <div className="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">Good pitch ✅</div> 
-                <div className="divider lg:divider-horizontal">VS</div> 
-                <div className="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">Bad pitch ❌</div>
-            </div> */}
+            <PitchGenerator brand={brand} />
             {/* <Testimonials11 brand={brand} /> */}
-
             <FAQ brand={brand} />
             <div className="container mx-auto px-4">
                 <h2 className="text-md font-semibold my-2">Related Categories</h2>

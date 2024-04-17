@@ -73,8 +73,8 @@ const FAQ = ({ brand }: {brand: []}) => {
 
   const faqList: FAQItemProps[] = [
     {
-      question: "Are they hiring UGC creators?",
-      answer: <div className="space-y-2 leading-relaxed">They could be looking to work with creators in the {brand.Category} niche</div>,
+      question: "What industry do they work with?",
+      answer: <div className="space-y-2 leading-relaxed">They could be looking to work with creators in the <strong>{brand.Category}</strong> niche</div>,
     },
     {
       question: "Who can I reach out to?",
