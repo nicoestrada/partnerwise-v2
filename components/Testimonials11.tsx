@@ -106,11 +106,11 @@ const list: {
     type: refTypes.productHunt,
     link: "https://www.producthunt.com/products/shipfast-2/reviews?review=667971",
   },
-  {
-    name: "Sean",
-    text: "Just purchased and cloned and *holy shit!* I realllyyy like what I'm seeing here!",
-    type: refTypes.other,
-  },
+  // {
+  //   name: "Sean",
+  //   text: "Just purchased and cloned and *holy shit!* I realllyyy like what I'm seeing here!",
+  //   type: refTypes.other,
+  // },
   {
     username: "krishna",
     name: "Krishna Kant",
@@ -130,15 +130,15 @@ const list: {
     text: "Yo Marc, I got the boilerplate, it's fantastic man you just save me 10 hours on each project",
     type: refTypes.other,
   },
-  {
-    name: "Marc Lou",
-    text: "The tool is exactly what I didn't even know I needed.",
-    videoPoster: "https://d1wkquwg5s1b04.cloudfront.net/demo/marcPoster.jpg",
-    videoSrc: "https://d1wkquwg5s1b04.cloudfront.net/demo/marcVideo.mp4",
-    videoHeight: 250,
-    videoWidth: 500,
-    type: refTypes.video,
-  },
+  // {
+  //   name: "Marc Lou",
+  //   text: "The tool is exactly what I didn't even know I needed.",
+  //   videoPoster: "https://d1wkquwg5s1b04.cloudfront.net/demo/marcPoster.jpg",
+  //   videoSrc: "https://d1wkquwg5s1b04.cloudfront.net/demo/marcVideo.mp4",
+  //   videoHeight: 250,
+  //   videoWidth: 500,
+  //   type: refTypes.video,
+  // },
   {
     username: "zawwadx",
     name: "Zawwad Ul Sami",
@@ -361,7 +361,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
 
 const Testimonials11 = ({ brand }) => {
   return (
-    <section className="bg-base-200" id="testimonials">
+    <section className="bg-base-100" id="testimonials">
       <div className="py-24 px-8 max-w-7xl mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
@@ -377,7 +377,7 @@ const Testimonials11 = ({ brand }) => {
 
         <ul
           role="list"
-          className="grid max-w-2xl grid-cols-1 gap-6 mx-auto sm:gap-8 md:grid-cols-2 lg:max-w-none lg:grid-cols-4"
+          className="grid blur max-w-2xl grid-cols-1 gap-6 mx-auto sm:gap-8 md:grid-cols-2 lg:max-w-none lg:grid-cols-4"
         >
           <li>
             <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
