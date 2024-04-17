@@ -1,29 +1,45 @@
-"use client";
 import React, { useState } from 'react';
-import axios from 'axios';
 
-export default function PitchGenerator({ brand }) {
+
+const PitchGenerator = ({ brand }) => {
     const [generatedText, setGeneratedText] = useState('');
 
-    // Function to handle generating the pitch using OpenAI API
     const handleGenerate = async () => {
-        const data = {
-            prompt: `Describe the best thing to say to ${brand["URL"]} for hiring an influencer for their campaigns.`,
-            max_tokens: 100
+        if (!brand || !brand["URL"]) {
+            setGeneratedText("Brand URL is required for generating the pitch.");
+            return;
+        }
+
+        // Prepare the request body with brand data
+        const requestBody = {
+            brand: {
+                URL: brand["URL"]
+            }
         };
 
         try {
-            const response = await axios.post('https://api.openai.com/v1/engines/davinci/completions', data, {
+            const response = await fetch('/api/generatePitch', {
+                method: 'POST',
                 headers: {
-                    'Authorization': `Bearer YOUR_OPENAI_API_KEY`,
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify(requestBody)
             });
 
-            setGeneratedText(response.data.choices[0].text);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (data.error) {
+                setGeneratedText(data.error);
+            } else {
+                setGeneratedText(data.pitch);
+            }
         } catch (error) {
-            console.error('Error calling OpenAI API:', error);
-            setGeneratedText('Failed to generate text. Please try again.');
+            console.error('Failed to generate pitch:', error);
+            setGeneratedText("Failed to communicate with the API.");
         }
     };
 
@@ -55,7 +71,9 @@ export default function PitchGenerator({ brand }) {
                     placeholder="Generated pitch will appear here..."
                     readOnly
                     value={generatedText}
-                ></textarea>
+                >
+
+                </textarea>
             </div>
 
             <div className="w-full px-2 my-2 lg:w-auto lg:order-last lg:flex-grow-0 lg:px-4">
@@ -66,3 +84,5 @@ export default function PitchGenerator({ brand }) {
         </div>
     );
 };
+
+export default PitchGenerator;
