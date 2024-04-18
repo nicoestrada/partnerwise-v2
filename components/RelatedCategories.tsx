@@ -2,13 +2,14 @@
 
 // components/RelatedCategories.js
 
-const categories = [
-    { name: 'Find Instagram Brands', href: '#instagram' },
-    { name: 'Find YouTube Brands', href: '#youtube' },
-    { name: 'Find Food & Drink Brands', href: '#food-drink' },
-  ];
+
+  export default function RelatedCategories({ brand }) {
+
+    const categories = [
+      { name: `Find ${brand["Category"]} brands`, href: '/' },
+    ];
   
-  export default function RelatedCategories() {
+
     return (
       <div className="flex overflow-x-auto py-4 space-x-2">
         {categories.map((category, index) => (

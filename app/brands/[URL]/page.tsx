@@ -78,15 +78,24 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
                             src={brand["OG image"]}
                             alt="Venue"
                             className="absolute inset-0 w-full h-full object-cover object-center" />
-                    </div>
+                    </div>   
+                </div>
+            </div>
+            <div className="flex flex-col lg:flex-row w-full lg:w-1/2 mx-auto">
+                <div className="flex-grow card bg-base-300 rounded-box place-items-center p-4">
+                    View this brand
+                </div> 
+                <div className="divider lg:divider-horizontal my-4 lg:my-0">OR</div>
+                <div className="flex-grow card bg-base-300 rounded-box place-items-center p-4">
+                    View another brand
                 </div>
             </div>
             <PitchGenerator brand={brand} />
-            {/* <Testimonials11 brand={brand} /> */}
+            <Testimonials11 brand={brand} />
             <FAQ brand={brand} />
             <div className="container mx-auto px-4">
                 <h2 className="text-md font-semibold my-2">Related Categories</h2>
-                <RelatedCategories />
+                <RelatedCategories brand={brand} />
             </div>
             <Footer />
         </>
