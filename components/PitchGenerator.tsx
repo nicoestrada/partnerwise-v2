@@ -72,7 +72,7 @@ const PitchGenerator = ({ brand }) => {
                         <label htmlFor="inputText" className="font-medium">
                             Write your pitch with AI
                         </label>
-                        <div className="badge bg-gray-100 text-gray-800 text-md shadow-xl font-medium ml-2 px-2.5 py-0.5 rounded-xl">Premium</div>
+                        <div className="badge bg-gradient-to-br from-blue-400 to-purple-600 text-white text-md shadow-xl font-medium ml-2 px-2.5 py-0.5 rounded-xl">Premium</div>
                     </div>
                     <div className="flex items-center">
                             <a href={brand["Instagram page URL"]} target="_blank" className="mx-1">

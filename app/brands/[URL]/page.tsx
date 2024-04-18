@@ -10,6 +10,9 @@ import TestimonialsAvatars from "@/components/TestimonialsAvatars";
 import RelatedCategories from "@/components/RelatedCategories";
 import Link from "next/link";
 import PitchGenerator from "@/components/PitchGenerator";
+import ButtonAccount from "@/components/ButtonAccount";
+import ButtonCheckout from "@/components/ButtonCheckout";
+import config from "@/config";
 
 export default function BrandPage({ params }: {params: {URL: string}}) {
     const [brand, setBrand] = useState([]); 
@@ -50,6 +53,8 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
     return (
         <>
             <Header />
+                
+
             <div className="max-w-screen-xl mx-auto p-5">
                 <div className="flex p-4 justify-between items-center">
                     <h2 className="text-md font-bold">{brand["URL"]?.toUpperCase()}</h2>
@@ -81,7 +86,7 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
                     </div>   
                 </div>
             </div>
-            <div className="flex flex-col lg:flex-row w-full lg:w-1/2 mx-auto">
+            {/* <div className="flex flex-col lg:flex-row w-full lg:w-1/2 mx-auto">
                 <div className="flex-grow card bg-base-300 rounded-box place-items-center p-4">
                     View this brand
                 </div> 
@@ -89,7 +94,7 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
                 <div className="flex-grow card bg-base-300 rounded-box place-items-center p-4">
                     View another brand
                 </div>
-            </div>
+            </div> */}
             <PitchGenerator brand={brand} />
             <Testimonials11 brand={brand} />
             <FAQ brand={brand} />

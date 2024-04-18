@@ -4,6 +4,7 @@ import { JSX, useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import config from "@/config";
+import ButtonCheckout from "./ButtonCheckout";
 
 // Use this object to add an icon to the testimonial (optional) like the Product Hunt logo for instance.
 // Only change the values if you add more referrings sites (currently Twitter & Product Hunt)
@@ -366,7 +367,7 @@ const Testimonials11 = ({ brand }) => {
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
             <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
-              See what people are saying about {brand["Store name"]}
+              See what UGC creators are saying about {brand["Store name"]}
             </h2>
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
@@ -374,7 +375,15 @@ const Testimonials11 = ({ brand }) => {
             about {brand.URL}.
           </p>
         </div>
-
+        <section className="max-w-xl mx-auto space-y-8">
+          <h1 className="text-3xl md:text-4xl font-extrabold">
+            Subscribe to get access:
+          </h1>
+          <ButtonCheckout
+            mode="subscription"
+            priceId={config.stripe.plans[0].priceId}
+          />
+        </section>
         <ul
           role="list"
           className="grid blur max-w-2xl grid-cols-1 gap-6 mx-auto sm:gap-8 md:grid-cols-2 lg:max-w-none lg:grid-cols-4"
