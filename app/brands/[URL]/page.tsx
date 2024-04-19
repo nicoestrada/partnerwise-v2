@@ -5,7 +5,6 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 import { useEffect, useState } from "react";
-import BrandHero from "@/components/BrandHero";
 import TestimonialsAvatars from "@/components/TestimonialsAvatars";
 import RelatedCategories from "@/components/RelatedCategories";
 import Link from "next/link";

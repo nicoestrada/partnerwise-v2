@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const categoriesMap: Map<number, string> = new Map([
@@ -29,22 +30,24 @@ const categoriesMap: Map<number, string> = new Map([
   [23, "Wedding"],
 ]);
 
-type SearchBarProps = {
-    onSearch: (criteria: SearchCriteria) => void;
-};
 
 type SearchCriteria = {
     industry: string;
-    revenueRange: string;
+    avgProductPrice: number;
 };
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+const SearchBar: React.FC = () => {
     const [industry, setIndustry] = useState('');
-    const [revenueRange, setRevenueRange] = useState('');
+    let router = useRouter();
 
+    const [avgProductPrice, setAvgProductPrice] = useState('');
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        onSearch({ industry, revenueRange });
+        const query = new URLSearchParams({
+          industry: industry,
+          avgProductPrice: avgProductPrice
+        }).toString();
+        router.push(`/search/${query}`);
     };
 
     return (
@@ -60,15 +63,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             ))}
           </select>
           <select
-              value={revenueRange}
-              onChange={(e) => setRevenueRange(e.target.value)}
+              value={avgProductPrice}
+              onChange={(e) => setAvgProductPrice(e.target.value)}
               className="flex-1 p-2 rounded-full focus:outline-none w-full"
           >
-              <option value="">Revenue</option>
-              <option value="0-5000">$0 - $5,000</option>
-              <option value="5001-50000">$5,001 - $50,000</option>
-              <option value="50001-500000">$50,001 - $500,000</option>
-              <option value="500001+">$500,001+</option>
+              <option value="">Avg. Product Price</option>
+              <option value="25">&lt; $25</option>
+              <option value="50">&lt; $50</option>
+              <option value="100">&lt; $100</option>
+              <option value="200">&lt; $200</option>
           </select>
           <button type="submit" className="px-4 py-2 bg-gradient-to-br from-blue-400 to-purple-600 text-white rounded-full hover:shadow-xl flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">

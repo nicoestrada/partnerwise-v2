@@ -24,11 +24,18 @@ export async function GET(req: NextRequest) {
     const brands = database.collection("brands");
     const industry = req.nextUrl?.searchParams?.get('industry');
     const url = req.nextUrl?.searchParams?.get('URL');
+    const avgProductPrice = req.nextUrl?.searchParams?.get('avgProductPrice');
 
     console.log("industry is ", industry)
     console.log("URL is ", url)
+    console.log("Avg Product Price is ", avgProductPrice);
 
-    if (industry) {
+    if (industry && avgProductPrice) {
+      const allBrands = await brands.aggregate([
+        { $match: { Category: { $eq: industry }, "Average product price": { $lt: avgProductPrice } }}, { $sample: { size: 21 }}
+      ]).toArray();
+      return new NextResponse(JSON.stringify(allBrands), { status: 200 });
+    } else if (industry) {
       const allBrands = await brands.aggregate([
         { $match: { Category: { $eq: industry }, "OG image": { $ne: "" } }}, { $sample: { size: 21 }}
       ]).toArray();
