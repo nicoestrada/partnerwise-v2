@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
 import BrandFeedLayout from './BrandFeedLayout';
+import router, { useSearchParams } from 'next/navigation';
 
 const categoriesMap: Map<number, string> = new Map([
   [0, "Apparel"],
@@ -32,6 +33,7 @@ const categoriesMap: Map<number, string> = new Map([
 const Tabs: React.FC = () => {
   
   const tabContainerRef = useRef(null);
+  const searchParams = useSearchParams();
 
   const [activeTab, setActiveTab] = useState(0);
 
@@ -40,9 +42,18 @@ const Tabs: React.FC = () => {
 
   const getBrands = async () => {
     try {
-      const query = new URLSearchParams({
-        industry: categoriesMap.get(activeTab)
-      });
+      let query;
+      if (!searchParams.has("avgProductPrice")) {
+        
+        query = new URLSearchParams({
+          industry: categoriesMap.get(activeTab)
+        });
+      } else {
+        query = new URLSearchParams({
+          avgProductPrice: searchParams.get('avgProductPrice')
+        });
+      }
+      
       const res = await fetch(`http://localhost:3000/api/brands?${query}`);
       if (!res.ok) {
           throw new Error('Failed to fetch brands');
@@ -86,6 +97,26 @@ const Tabs: React.FC = () => {
       return () => window.removeEventListener('resize', updateScrollPosition);
     }
   }, []);
+
+  useEffect(() => {
+    // Update active tab based on the current URL search parameters
+    const fetchURLParams = async () => {
+      const avgProductPrice = searchParams.get('avgProductPrice');
+      if (avgProductPrice) {
+        setIsLoading(true);
+        try {
+          const data = await getBrands();
+          setBrands(data);
+        } catch (error) {
+          console.log(error);
+          setBrands([]);
+        }
+        setIsLoading(false);
+      }
+    }
+    fetchURLParams();
+    
+  }, [searchParams]); // React to changes in searchParams
 
   const handleTabClick = (index: number) => {
     setActiveTab(index); // Now fetchData is triggered by useEffect when activeTab changes
@@ -368,6 +399,17 @@ const Tabs: React.FC = () => {
               activeTab === 23 ? 'text-slate-800' : 'text-gray-500 hover:text-slate-800'
             }`}>Wedding</p>
         </button>
+        <button
+          onClick={() => handleTabClick(23)}
+          className={`px-4 py-2 font-medium ${
+            activeTab === 24 ? 'text-gray-800 border-b-2 border-purple-500' : 'text-gray-400 hover:text-slate-800 hover:border-b-2 hover:cursor-pointer hover:bg-base-200 hover:rounded-lg'
+          }`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-church mx-auto"><path d="m18 7 4 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9l4-2"/><path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"/><path d="M18 22V5l-6-3-6 3v17"/><path d="M12 7v5"/><path d="M10 9h4"/></svg>
+          <p className={`text-xs mt-2 mx-auto ${
+              activeTab === 24 ? 'text-slate-800' : 'text-gray-500 hover:text-slate-800'
+            }`}>Search</p>
+        </button>
       </div>
       {!isLoading ? <div className="mx-auto justify-center mt-4">
         <div className={`${activeTab === 0 ? 'block' : 'hidden'}`}>
@@ -445,6 +487,7 @@ const Tabs: React.FC = () => {
         <div className={`${activeTab === 23 ? 'block' : 'hidden'}`}>
           <BrandFeedLayout brands={brands} />
         </div>
+        
       </div> : loadingIndicator
       }
       

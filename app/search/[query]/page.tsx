@@ -5,6 +5,7 @@ import SearchBar from '@/components/SearchBar';
 import SearchResults from '@/components/SearchResults';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
+export const dynamic = 'force-dynamic'
 
 
 export default function SearchPage() {
@@ -14,9 +15,10 @@ export default function SearchPage() {
       <Suspense>
         <Header />
         <SearchBar />
-        <SearchResults />
       </Suspense>
+        <SearchResults />
       <main>
+        
         <Hero />
       </main>
       <Footer />

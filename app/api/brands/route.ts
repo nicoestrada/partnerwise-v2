@@ -30,9 +30,17 @@ export async function GET(req: NextRequest) {
     console.log("URL is ", url)
     console.log("Avg Product Price is ", avgProductPrice);
 
-    if (industry && avgProductPrice) {
+    if (avgProductPrice) {
       const allBrands = await brands.aggregate([
-        { $match: { Category: { $eq: industry }, "Average product price": { $lt: avgProductPrice } }}, { $sample: { size: 21 }}
+        { 
+          $match: {
+            'Average product price': { // Assuming 'Average product price' is a field within 'Category' document
+              $lt: avgProductPrice
+            },
+            "OG image": { $ne: "" }
+          }
+        },
+        { $sample: { size: 21 } }
       ]).toArray();
       return new NextResponse(JSON.stringify(allBrands), { status: 200 });
     } else if (industry) {

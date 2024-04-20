@@ -1,90 +1,51 @@
 "use client"
-
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-
-const categoriesMap: Map<number, string> = new Map([
-  [0, "Apparel"],
-  [1, "Antiques & Collectibles"],
-  [2, "Autos & Vehicles"],
-  [3, "Beauty & Fitness"],
-  [4, "Books & Literature"],
-  [5, "Business & Industrial"],
-  [6, "Consumer Electronics"],
-  [7, "Finance"],
-  [8, "Food & Drink"],
-  [9, "Games"],
-  [10, "Gifts & Special Events"],
-  [11, "Health"],
-  [12, "Holidays & Seasonal"],
-  [13, "Home & Garden"],
-  [14, "People & Society"],
-  [15, "Pets & Animals"],
-  [16, "Photo & Video Services"],
-  [17, "Safety & Survival"],
-  [18, "Science"],
-  [19, "Smoking & Vaping"],
-  [20, "Sports"],
-  [21, "Toys & Hobbies"],
-  [22, "Travel"],
-  [23, "Wedding"],
-]);
-
-
-type SearchCriteria = {
-    industry: string;
-    avgProductPrice: number;
-};
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import React, { useCallback, useState } from 'react';
 
 const SearchBar: React.FC = () => {
-    const [industry, setIndustry] = useState('');
-    let router = useRouter();
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    
+    const [avgProductPrice, setAvgProductPrice] = useState<string>('');
 
-    const [avgProductPrice, setAvgProductPrice] = useState('');
+    // Function to create query string
+    const createQueryString = useCallback(
+        (name: string, value: string) => {
+            const params = new URLSearchParams(searchParams);
+            params.set(name, value);
+            return params.toString();
+        },
+        [searchParams]
+    );
+
+    // Handle form submission
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const query = new URLSearchParams({
-          industry: industry,
-          avgProductPrice: avgProductPrice
-        }).toString();
-        router.push(`/search/${query}`);
+        // Update the URL with the new query string
+        router.push('/' + '?' + createQueryString('avgProductPrice', avgProductPrice));
     };
 
     return (
-        <form onSubmit={handleSubmit} className="shadow-lg rounded-full border mx-auto p-2 flex flex-row items-center gap-1 w-96 md:w-96 lg:w-96 xl:w-2/5 grid-cols-2">
-          <select
-            value={industry}
-            onChange={(e) => setIndustry(e.target.value)}
-            className="flex-1 p-2 rounded-full focus:outline-none w-full"
-          >
-            <option value="">Industry</option>
-            {Array.from(categoriesMap, ([key, value]) => (
-              <option key={key} value={value}>{value}</option>
-            ))}
-          </select>
-          <select
-              value={avgProductPrice}
-              onChange={(e) => setAvgProductPrice(e.target.value)}
-              className="flex-1 p-2 rounded-full focus:outline-none w-full"
-          >
-              <option value="">Avg. Product Price</option>
-              <option value="25">&lt; $25</option>
-              <option value="50">&lt; $50</option>
-              <option value="100">&lt; $100</option>
-              <option value="200">&lt; $200</option>
-          </select>
-          <button type="submit" className="px-4 py-2 bg-gradient-to-br from-blue-400 to-purple-600 text-white rounded-full hover:shadow-xl flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
-          </button>
+        <form onSubmit={handleSubmit} className="shadow-lg rounded-full border mx-auto p-2 flex flex-row items-center gap-1 w-96 grid-cols-2">
+            <select
+                value={avgProductPrice}
+                onChange={(e) => setAvgProductPrice(e.target.value)}
+                className="flex-1 p-2 rounded-full focus:outline-none w-full"
+            >
+                <option value="">Random Shuffle</option>
+                <option value="25">Random Shuffle 1</option>
+                <option value="50">Random Shuffle 2</option>
+                <option value="100">Random Shuffle 3</option>
+                <option value="200">Random Shuffle 4</option>
+            </select>
+            <button type="submit" className="px-4 py-2 bg-gradient-to-br from-blue-400 to-purple-600 text-white rounded-full hover:shadow-xl flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
         </form>
     );
 };
 
 export default SearchBar;
-
-// <label className="w-2/3 border md:w-7/12 xl:w-2/5 mx-auto input input-bordered flex shadow-lg focus:outline-none w-60 items-center rounded-full md:mt-2 lg:mt-2">
-//   <input type="text" className="grow" placeholder="Find brands..." />
-//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
-// </label>

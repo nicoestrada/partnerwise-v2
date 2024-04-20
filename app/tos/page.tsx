@@ -11,16 +11,16 @@ import config from "@/config";
 
 // You are an excellent lawyer.
 
-// I need your help to write a simple Terms & Services for my website. Here is some context:
-// - Website: https://shipfa.st
-// - Name: ShipFast
-// - Contact information: marc@shipfa.st
-// - Description: A JavaScript code boilerplate to help entrepreneurs launch their startups faster
-// - Ownership: when buying a package, users can download code to create apps. They own the code but they do not have the right to resell it. They can ask for a full refund within 7 day after the purchase.
+// I need your help to write</> a simple Terms & Services for my website. Here is some context:
+// - Website: https://partnerwise.io
+// - Name: PartnerWise
+// - Contact information: team@partnerwise.io
+// - Description: An app to find brands to partner and collab with
+// - Ownership: When purchasing a monthly or yearly subscription, they have full access to the platform for that duration. They can ask for a full refund within 7 day after the purchase.
 // - User data collected: name, email and payment information
 // - Non-personal data collection: web cookies
-// - Link to privacy-policy: https://shipfa.st/privacy-policy
-// - Governing Law: France
+// - Link to privacy-policy: https://partnerwise.io/privacy-policy
+// - Governing Law: USA
 // - Updates to the Terms: users will be updated by email
 
 // Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
@@ -57,39 +57,35 @@ const TOS = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+          {`**Terms of Service for PartnerWise**
 
-Welcome to ShipFast!
+**Effective Date: April 19, 2024**
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+**1. Acceptance of Terms**
+By accessing and using the PartnerWise website (https://partnerwise.io), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you are prohibited from using or accessing this site.
 
-1. Description of ShipFast
+**2. Subscription Services**
+PartnerWise offers monthly and yearly subscription options. Upon purchasing a subscription, you gain full access to the platform for the duration of the purchased period. Subscriptions may be canceled with a full refund within 7 days of purchase.
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+**3. User Data**
+We collect personal information such as your name, email address, and payment information. This data is used to manage your account and provide you with requested services. For more details on data usage, please refer to our Privacy Policy (https://partnerwise.io/privacy-policy).
 
-2. Ownership and Usage Rights
+**4. Non-Personal Data**
+We use cookies on our site to improve user experience, analyze site usage, and manage content. Cookies are small data files stored on your device. By using PartnerWise, you consent to the use of cookies.
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
+**5. Intellectual Property**
+All content on the PartnerWise site is the exclusive property of PartnerWise or its content suppliers and is protected by international copyright and intellectual property laws.
 
-3. User Data and Privacy
+**6. Governing Law**
+These Terms are governed by and construed in accordance with the laws of the United States. Any disputes arising out of or related to these Terms or the PartnerWise site shall be handled by the courts of the United States.
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+**7. Changes to Terms**
+PartnerWise reserves the right to modify these Terms at any time. We will notify users of any changes by posting the new Terms on this site and updating them via email. Your continued use of the site after such changes constitutes your acceptance of the new Terms.
 
-4. Non-Personal Data Collection
+**8. Contact Us**
+If you have any questions about these Terms, please contact us at team@partnerwise.io.
 
-We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
-
-5. Governing Law
-
-These Terms are governed by the laws of France.
-
-6. Updates to the Terms
-
-We may update these Terms from time to time. Users will be notified of any changes via email.
-
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
-
-Thank you for using ShipFast!`}
+By using PartnerWise, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.`}
         </pre>
       </div>
     </main>

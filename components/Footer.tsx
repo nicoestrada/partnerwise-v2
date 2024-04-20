@@ -54,12 +54,12 @@ const Footer = () => {
                     Support
                   </a>
                 )}
-                <Link href="/#pricing" className="link link-hover">
+                <Link href="/pricing" className="link link-hover">
                   Pricing
                 </Link>
-                <Link href="/about" className="link link-hover">
+                {/* <Link href="/about" className="link link-hover">
                   About
-                </Link>
+                </Link> */}
                 <a href="https://partnerwise.tolt.io/login" target="_blank" className="link link-hover">
                   Affiliates
                 </a>

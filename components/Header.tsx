@@ -21,10 +21,10 @@ const links = [
     href: "/pricing",
     label: "Pricing",
   },
-  {
-    href: "/about",
-    label: "About",
-  },
+  // {
+  //   href: "/about",
+  //   label: "About",
+  // },
 ];
 
 const cta = <ButtonAccount />;

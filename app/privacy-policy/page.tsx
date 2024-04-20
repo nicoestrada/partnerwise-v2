@@ -57,51 +57,46 @@ const PrivacyPolicy = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: 2023-08-25
+          {`
+Privacy Policy for PartnerWise
 
-Thank you for visiting ShipFast ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our website located at https://shipfa.st (the "Website").
+Effective Date: April 19, 2024
 
-By accessing or using the Website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the Website.
+1. Introduction
+Welcome to PartnerWise (https://partnerwise.io). We are committed to protecting the privacy and security of our users' information. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of your information when you use our service.
 
-1. Information We Collect
+2. Information Collection
+We collect the following types of information:
 
-1.1 Personal Data
+Personal Data: This includes your name, email address, and payment information, which we collect to manage your account and process transactions.
+Non-Personal Data: We collect non-personal information such as cookies that help us understand how our service is used and how we can improve it.
+3. Use of Information
+The information we collect is used to:
 
-We collect the following personal information from you:
+Provide and maintain our service;
+Notify you about changes to our service;
+Allow you to participate in interactive features of our service when you choose to do so;
+Provide customer support;
+Process transactions and manage your account, including providing you with invoices and/or order confirmations;
+Detect, prevent, and address technical issues.
+4. Disclosure of Information
+We may disclose your personal information in the following situations:
 
-Name: We collect your name to personalize your experience and communicate with you effectively.
-Email: We collect your email address to send you important information regarding your orders, updates, and communication.
-Payment Information: We collect payment details to process your orders securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors.
+To Service Providers: We may share your information with service providers who perform services on our behalf.
+For Legal Requirements: We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or a government agency).
 
-1.2 Non-Personal Data
-
-We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us to enhance your browsing experience, analyze trends, and improve our services.
-
-2. Purpose of Data Collection
-
-We collect and use your personal data for the sole purpose of order processing. This includes processing your orders, sending order confirmations, providing customer support, and keeping you updated about the status of your orders.
-
-3. Data Sharing
-
-We do not share your personal data with any third parties except as required for order processing (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
-
-4. Children's Privacy
-
-ShipFast is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
-
-5. Updates to the Privacy Policy
-
+5. Updates 
 We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any updates will be posted on this page, and we may notify you via email about significant changes.
 
 6. Contact Information
 
 If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:
 
-Email: marc@shipfa.st
+Email: team@partnerwise.io
 
 For all other inquiries, please visit our Contact Us page on the Website.
 
-By using ShipFast, you consent to the terms of this Privacy Policy.`}
+By using PartnerWise, you consent to the terms of this Privacy Policy.`}
         </pre>
       </div>
     </main>

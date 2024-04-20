@@ -95,7 +95,7 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
                 </div>
             </div> */}
             <PitchGenerator brand={brand} />
-            <Testimonials11 brand={brand} />
+            {/* <Testimonials11 brand={brand} /> */}
             <FAQ brand={brand} />
             <div className="container mx-auto px-4">
                 <h2 className="text-md font-semibold my-2">Related Categories</h2>
