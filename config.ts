@@ -22,44 +22,43 @@ const config = {
         // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
         priceId:
           process.env.NODE_ENV === "development"
-            ? "price_1ODpx4KHip0NxUZFeEaBaluN"
-            : "price_1ODpx4KHip0NxUZFeEaBaluN",
+            ? "price_1NdJnXKHip0NxUZFNkycuFGN"
+            : "price_1NdJnXKHip0NxUZFNkycuFGN",
         //  REQUIRED - Name of the plan, displayed on the pricing page
-        name: "Starter",
+        name: "PartnerWise+",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-        description: "Perfect for small projects",
+        description: "Perfect for small creators just starting out",
         // The price you want to display, the one user will be charged on Stripe.
-        price: 99,
+        price: 15,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 149,
+        priceAnchor: 47,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "Unlimited access to brands",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
+          { name: "Limited access to Pitch with AI" },
+          { name: "30-day guarantee" },
+          { name: "24/7 support" },
         ],
       },
       {
         priceId:
           process.env.NODE_ENV === "development"
-            ? "price_1O5KtcAxyNprDp7iftKnrrpw"
-            : "price_456",
+            ? "price_1NdJqyKHip0NxUZF8KSY0qqW"
+            : "price_1NdJqyKHip0NxUZF8KSY0qqW",
         // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
         isFeatured: true,
-        name: "Advanced",
-        description: "You need more power",
-        price: 149,
-        priceAnchor: 299,
+        name: "PartnerWise Premium",
+        description: "Best value plan for established creators",
+        price: 27,
+        priceAnchor: 97,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "Priority to new brands",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
-          { name: "1 year of updates" },
+          { name: "Everything in PartnerWise+" },
+          { name: "More access to Pitch with AI" },
+          { name: "30 day guarantee" },
           { name: "24/7 support" },
         ],
       },
