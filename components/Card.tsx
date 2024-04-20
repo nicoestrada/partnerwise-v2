@@ -1,11 +1,34 @@
-import Link from "next/link";
+import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import ErrorModal from './ErrorModal';
 
 export default function Card({ brand }) {
+    const { data: session } = useSession();
+    const router = useRouter();
+  
+    const [showErrorModal, setShowErrorModal] = useState(false);
+  
+    const handleCardClick = (event) => {
+        event.preventDefault();
+    
+        if (!session) {
+          setShowErrorModal(true); // Show error modal if not logged in
+          return;
+        }
+    
+        // Redirect to the desired URL
+        router.push(`/brands/${brand["URL"]}`);
+      };
+    
+
+    const handleCloseErrorModal = () => {
+        setShowErrorModal(false);
+    };
 
     return (
         <>
-            <div className="card w-96 mx-auto my-8 mx-8 border shadow-sm hover:cursor-pointer hover:shadow-xl">
-                <Link href={`/brands/${brand["URL"]}`}>
+            <div className="card w-96 mx-auto my-8 mx-8 border shadow-sm hover:cursor-pointer hover:shadow-xl" onClick={handleCardClick}>
                     <figure className="relative">
                         <img src={brand["OG image"]} alt={brand["URL"]+" hero image"} className="rounded-xl w-190 h-80"/>
                         <div className="badge bg-gray-100 text-gray-800 text-md shadow-xl font-medium me-2 px-2.5 py-0.5 rounded-xl dark:bg-gray-100 dark:text-gray-800 absolute m-2 top-0 left-0">{brand["Category"]}</div>  
@@ -34,8 +57,14 @@ export default function Card({ brand }) {
                         <p className="text-sm text-start pb-2 pl-2">Avg. Product Price: {brand["Average product price"] !== "" ? "$"+brand["Average product price"] : "N/A"}</p>
 
                     </div>
-                </Link>
+                
             </div>
+            {showErrorModal && (
+            <ErrorModal
+              message="You must be logged in to view this page."
+              onClose={handleCloseErrorModal}
+            />
+          )}
         </>
     );
 }

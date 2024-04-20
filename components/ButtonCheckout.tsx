@@ -11,7 +11,7 @@ import React from "react";
 // You can also change the mode to "subscription" if you want to create a subscription instead of a one-time payment
 const ButtonCheckout = ({
   priceId,
-  mode = "payment",
+  mode = "subscription",
 }: {
   priceId: string;
   mode?: "payment" | "subscription";
