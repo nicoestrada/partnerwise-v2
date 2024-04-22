@@ -61,7 +61,7 @@ export default function Card({ brand }) {
             </div>
             {showErrorModal && (
             <ErrorModal
-              message="You must be logged in to view this page."
+              message="Please log in first."
               onClose={handleCloseErrorModal}
             />
           )}

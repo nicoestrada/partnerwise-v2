@@ -94,7 +94,7 @@ const Pricing = () => {
                   <ButtonCheckout priceId={plan.priceId} />
 
                   <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                    You won't be charged for 7 days
+                    $0 due today
                   </p>
                 </div>
               </div>
