@@ -2,6 +2,7 @@ import config from "@/config";
 import ButtonCheckout from "./ButtonCheckout";
 import React from "react";
 import TestimonialRating from "./TestimonialRating";
+import TestimonialsAvatars from "./TestimonialsAvatars";
 
 // <Pricing/> displays the pricing plans for your app
 // It's your Stripe config in config.js.stripe.plans[] that will be used to display the plans
@@ -19,8 +20,7 @@ const Pricing = () => {
           <p className="pt-5">30 day money back guarantee. Cancel anytime.
           </p>
           <TestimonialRating />
-
-          
+        
         </div>
 
         <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">

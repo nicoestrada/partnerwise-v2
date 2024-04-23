@@ -87,7 +87,7 @@ const FAQ = ({ brand }) => {
     {
       question: "I have another question",
       answer: (
-        <div className="space-y-2 leading-relaxed">Cool, contact us by email or post a review</div>
+        <div className="space-y-2 leading-relaxed">Contact us by email and we'll be glad to help!</div>
       ),
     },
   ];

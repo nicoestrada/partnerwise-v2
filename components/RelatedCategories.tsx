@@ -6,7 +6,7 @@
   export default function RelatedCategories({ brand }) {
 
     const categories = [
-      { name: `Find other ${brand["Category"]} brands`, href: '/' },
+      { name: `Explore more brands like ${brand["URL"]} `, href: '/' },
     ];
   
 
