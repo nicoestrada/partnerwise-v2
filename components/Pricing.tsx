@@ -15,7 +15,7 @@ const Pricing = () => {
           <h2 className="font-bold text-3xl lg:text-5xl tracking-tight">
             Research and discover your next collab, all in one place 🪄
           </h2>
-          <p className="pt-5">7-day free trial. 30 day money back guarantee. Cancel anytime.</p>
+          <p className="pt-5">30 day money back guarantee. Cancel anytime.</p>
         </div>
 
         <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">
@@ -94,7 +94,7 @@ const Pricing = () => {
                   <ButtonCheckout priceId={plan.priceId} />
 
                   <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                    $0 due today
+                    Immediate access to brands
                   </p>
                 </div>
               </div>

@@ -45,7 +45,7 @@ const ButtonCheckout = ({
       className="btn btn-primary btn-block group hover:shadow-xl"
       onClick={() => handlePayment()}
     > 
-      Start for free
+      Start now
       {isLoading ? (
         <span className="loading loading-spinner loading-xs"></span>
       ) : (

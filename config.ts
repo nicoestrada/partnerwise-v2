@@ -36,7 +36,7 @@ const config = {
           {
             name: "Unlimited access to brands",
           },
-          { name: "Limited access to Pitch with AI" },
+          { name: "Access to Gen 1 AI model" },
           { name: "30-day guarantee" },
           { name: "24/7 support" },
         ],
@@ -57,7 +57,7 @@ const config = {
             name: "Priority to new brands",
           },
           { name: "Everything in PartnerWise+" },
-          { name: "More access to Pitch with AI" },
+          { name: "Access to improved AI model" },
           { name: "30 day guarantee" },
           { name: "24/7 support" },
         ],
