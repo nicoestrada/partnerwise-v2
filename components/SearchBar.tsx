@@ -61,7 +61,7 @@ const SearchBar = () => {
 
       {showErrorModal && (
         <ErrorModal
-          message="You must be logged in to use random search."
+          message="You must be logged in to use sort."
           onClose={handleCloseErrorModal}
         />
       )}
