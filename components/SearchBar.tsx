@@ -31,6 +31,7 @@ const SearchBar = () => {
 
   const handleCloseErrorModal = () => {
     setShowErrorModal(false); // Ensure modal can be closed
+    router.push('/api/auth/signin?callbackUrl=%2F');
   };
 
   return (
@@ -44,11 +45,11 @@ const SearchBar = () => {
           onChange={(e) => setAvgProductPrice(e.target.value)}
           className="flex-1 p-2 rounded-full focus:outline-none"
         >
-          <option value="">Random Shuffle</option>
-          <option value="25">Random Shuffle 1</option>
-          <option value="50">Random Shuffle 2</option>
-          <option value="100">Random Shuffle 3</option>
-          <option value="200">Random Shuffle 4</option>
+          <option value="">Sort by</option>
+          <option value="25">Trending</option>
+          <option value="200">Shuffle</option>
+          <option value="50">Relevant</option>
+          <option value="100">Recently added</option>
         </select>
         <button
           type="submit"

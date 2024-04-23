@@ -23,10 +23,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
             model: "gpt-3.5-turbo",
             messages: [{
                 role: "user",
-                content: `Write a pitch to provide an ad as a UGC creator with a blank link for me to enter my portfolio link for exchange of a free product or money.`
+                content: `Write a short pitch template as if you are a content creator trying to pitch yourself to a brand. Do not leave it uncomplete. It must be short.`
             }],
-            temperature: 0.6,
-            max_tokens: 100
+            temperature: 0.3,
+            max_tokens: 80
         });
 
         if (completion.choices.length > 0) {

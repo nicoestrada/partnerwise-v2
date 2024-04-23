@@ -25,6 +25,7 @@ export default function Card({ brand, key }) {
 
     const handleCloseErrorModal = () => {
         setShowErrorModal(false);
+        router.push('/api/auth/signin?callbackUrl=%2F');
     };
 
     return (
