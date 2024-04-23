@@ -3,7 +3,8 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import ErrorModal from './ErrorModal';
 
-export default function Card({ brand }) {
+export default function Card({ brand, key }) {
+    key = "";
     const { data: session } = useSession();
     const router = useRouter();
   

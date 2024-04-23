@@ -12,18 +12,18 @@ export async function POST(req: NextRequest, res: NextResponse) {
         NextResponse.json({ error: "Method not allowed" });
     }
 
-    const { brand } = req.body;
+    // const { body: { brand } } = req;
 
-    if (!brand || !brand["URL"]) {
-        NextResponse.json({ error: "Brand URL is required" });
-    }
+    // if (!brand || !brand["URL"]) {
+    //     NextResponse.json({ error: "Brand URL is required" });
+    // }
 
     try {
         const completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [{
                 role: "user",
-                content: `Write a pitch as a UGC creator to on how you would like to collaborate.`
+                content: `Write a pitch to provide an ad as a UGC creator with a blank link for me to enter my portfolio link for exchange of a free product or money.`
             }],
             temperature: 0.6,
             max_tokens: 100

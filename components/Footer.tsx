@@ -63,6 +63,9 @@ const Footer = () => {
                 <a href="https://partnerwise.tolt.io/login" target="_blank" className="link link-hover">
                   Affiliates
                 </a>
+                <Link href="https://pay.partnerwise.io/p/login/5kA17ebbWceufT2144" className="link link-hover">
+                  Manage Billing
+                </Link>
               </div>
             </div>
 
