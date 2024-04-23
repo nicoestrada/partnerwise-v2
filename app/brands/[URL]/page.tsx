@@ -16,13 +16,13 @@ export const dynamic = "force-dynamic";
 
 export default function BrandPage({ params }: {params: {URL: string}}) {
     const [brand, setBrand] = useState([]); 
-
+    
     const getBrand = async () => {
         try {
             const query = new URLSearchParams({ 
                 URL: params.URL
             });
-            const res = await fetch(process.env.NEXTAUTH_URL+`/api/brands?${query}`);
+            const res = await fetch(`/api/brands?${query}`);
             if (!res.ok) {
                 throw new Error('Failed to fetch info about this brand');
             }
