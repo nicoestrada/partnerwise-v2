@@ -26,7 +26,7 @@ const ButtonCheckout = ({
         "/stripe/create-checkout",
         {
           priceId,
-          successUrl: "/",
+          successUrl: "https://partnerwise.io",
           cancelUrl: window.location.href,
           mode,
         }
