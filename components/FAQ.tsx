@@ -69,7 +69,7 @@ const FaqItem = ({ item }: { item: FAQItemProps, brand: [] }) => {
   );
 };
 
-const FAQ = ({ brand }: {brand: []}) => {
+const FAQ = ({ brand }) => {
 
   const faqList: FAQItemProps[] = [
     {
