@@ -11,6 +11,7 @@ import PitchGenerator from "@/components/PitchGenerator";
 import ButtonAccount from "@/components/ButtonAccount";
 import ButtonCheckout from "@/components/ButtonCheckout";
 import config from "@/config";
+
 export const dynamic = "force-dynamic";
 
 export default function BrandPage({ params }: {params: {URL: string}}) {
@@ -21,7 +22,7 @@ export default function BrandPage({ params }: {params: {URL: string}}) {
             const query = new URLSearchParams({ 
                 URL: params.URL
             });
-            const res = await fetch(`http://localhost:3000/api/brands?${query}`);
+            const res = await fetch(process.env.NEXTAUTH_URL+`/api/brands?${query}`);
             if (!res.ok) {
                 throw new Error('Failed to fetch info about this brand');
             }

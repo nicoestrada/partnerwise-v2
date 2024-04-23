@@ -16,7 +16,7 @@ const SearchResults: React.FC = () => {
             const query = new URLSearchParams({
                 avgProductPrice: searchParams.get('avgProductPrice')
             });
-            const res = await fetch(`http://localhost:3000/api/brands?${query}`);
+            const res = await fetch(process.env.NEXTAUTH_URL+`/api/brands?${query}`);
             if (!res.ok) {
                 throw new Error('Failed to fetch brands');
           }
