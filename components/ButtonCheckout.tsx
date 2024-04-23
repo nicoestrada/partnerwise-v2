@@ -14,7 +14,7 @@ const ButtonCheckout = ({
   mode = "subscription",
 }: {
   priceId: string;
-  mode?: "payment" | "subscription";
+  mode?: "subscription";
 }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -26,7 +26,7 @@ const ButtonCheckout = ({
         "/stripe/create-checkout",
         {
           priceId,
-          successUrl: window.location.href,
+          successUrl: 'https://partnerwise.io',
           cancelUrl: window.location.href,
           mode,
         }
