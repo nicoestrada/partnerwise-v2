@@ -1,6 +1,6 @@
 const TestimonialRating = () => {
   return (
-    <div className="flex -gap-1 items-center mt-auto">
+    <div className="flex -gap-1 items-center mt-6 mx-auto">
       <svg
         viewBox="0 0 773 1262"
         className="w-8 fill-base-content/40 rotate-12"
@@ -23,7 +23,7 @@ const TestimonialRating = () => {
       </svg>
       <div>
         <p className="text-base-content/80 text-sm text-center">
-          1000+ happy users
+          4,750+ happy creators use us!
         </p>
         <div className="flex flex-row justify-center gap-0 pt-1">
           {[...Array(5)].map((e, i) => (

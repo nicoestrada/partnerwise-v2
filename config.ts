@@ -22,7 +22,7 @@ const config = {
         // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
         priceId:
           process.env.NODE_ENV === "development"
-            ? "price_1NcvzZKHip0NxUZFRazqbzPH"
+            ? "price_1NdJnXKHip0NxUZFNkycuFGN"
             : "price_1NdJnXKHip0NxUZFNkycuFGN",
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "PartnerWise+",
@@ -44,7 +44,7 @@ const config = {
       {
         priceId:
           process.env.NODE_ENV === "development"
-            ? "price_1NcvzZKHip0NxUZFRazqbzPH"
+            ? "price_1NdJqyKHip0NxUZF8KSY0qqW"
             : "price_1NdJqyKHip0NxUZF8KSY0qqW",
         // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
         isFeatured: true,

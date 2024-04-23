@@ -1,6 +1,7 @@
 import config from "@/config";
 import ButtonCheckout from "./ButtonCheckout";
 import React from "react";
+import TestimonialRating from "./TestimonialRating";
 
 // <Pricing/> displays the pricing plans for your app
 // It's your Stripe config in config.js.stripe.plans[] that will be used to display the plans
@@ -9,13 +10,17 @@ import React from "react";
 const Pricing = () => {
   return (
     <section className="bg-base-100 overflow-hidden" id="pricing">
-      <div className="py-24 px-8 max-w-5xl mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
+      <div className="py-10 px-8 max-w-5xl mx-auto">
+        <div className="flex flex-col text-center w-full mb-20 mx-auto">
           <p className="font-medium text-primary mb-8">Pricing</p>
           <h2 className="font-bold text-3xl lg:text-5xl tracking-tight">
             Research and discover your next collab, all in one place 🪄
           </h2>
-          <p className="pt-5">30 day money back guarantee. Cancel anytime.</p>
+          <p className="pt-5">30 day money back guarantee. Cancel anytime.
+          </p>
+          <TestimonialRating />
+
+          
         </div>
 
         <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">
