@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
 import BrandFeedLayout from './BrandFeedLayout';
-import router, { useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 const categoriesMap: Map<number, string> = new Map([
   [0, "Apparel"],
