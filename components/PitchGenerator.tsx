@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import ErrorModal from './ErrorModal'; // Assuming you have a component for the error modal
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/libs/next-auth';
+import connectMongo from '@/libs/mongoose';
+import User from "@/models/User";
+import { useRouter } from 'next/navigation';
 
 const PitchGenerator = ({ brand }) => {
+  const router = useRouter();
   const { data: session } = useSession();
+  
   const [showErrorModal, setShowErrorModal] = useState(false); // Error modal state
   const [generatedText, setGeneratedText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [copyButtonText, setCopyButtonText] = useState("Copy");
 
   const handleGenerate = async () => {
-    if (!session || session.user.hasAccess !== true) {
-      setShowErrorModal(true); // Show error modal if user doesn't have access
-      return;
-    }
 
     setIsLoading(true);
 
@@ -56,7 +59,7 @@ const PitchGenerator = ({ brand }) => {
     setIsLoading(false);
   };
 
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text)
       .then(() => setCopyButtonText("Copied ✅"))
       .catch((err) => console.error('Could not copy text:', err));

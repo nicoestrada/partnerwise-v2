@@ -61,6 +61,7 @@ export interface ConfigProps {
   };
   auth: {
     loginUrl: string;
+    pricingUrl: string;
     callbackUrl: string;
   };
 }

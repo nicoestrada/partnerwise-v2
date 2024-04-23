@@ -26,7 +26,7 @@ const ButtonCheckout = ({
         "/stripe/create-checkout",
         {
           priceId,
-          successUrl: window.location.href,
+          successUrl: "/",
           cancelUrl: window.location.href,
           mode,
         }

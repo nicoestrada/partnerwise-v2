@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Testimonials11 from "@/components/Testimonials11";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-
 import { useEffect, useState } from "react";
 import TestimonialsAvatars from "@/components/TestimonialsAvatars";
 import RelatedCategories from "@/components/RelatedCategories";
@@ -12,6 +11,7 @@ import PitchGenerator from "@/components/PitchGenerator";
 import ButtonAccount from "@/components/ButtonAccount";
 import ButtonCheckout from "@/components/ButtonCheckout";
 import config from "@/config";
+export const dynamic = "force-dynamic";
 
 export default function BrandPage({ params }: {params: {URL: string}}) {
     const [brand, setBrand] = useState([]); 

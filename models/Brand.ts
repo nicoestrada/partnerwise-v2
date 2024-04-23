@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import toJSON from "./plugins/toJSON";
-import { Int32 } from "mongodb";
 
 //Brand Schema
 const BrandSchema = new mongoose.Schema({
