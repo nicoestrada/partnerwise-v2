@@ -43,9 +43,9 @@ const SearchBar = () => {
         <select
           value={avgProductPrice}
           onChange={(e) => setAvgProductPrice(e.target.value)}
-          className="flex-1 p-2 rounded-full focus:outline-none"
+          className="flex-1 rounded-full focus:outline-none select select-ghost w-full max-w-xs border:none focus:border-none"
         >
-          <option value="">Sort by</option>
+          <option className='disabled selected'>Sort by</option>
           <option value="25">Trending</option>
           <option value="200">Shuffle</option>
           <option value="50">Relevant</option>
