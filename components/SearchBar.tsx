@@ -38,7 +38,7 @@ const SearchBar = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="shadow-lg rounded-full border mx-auto p-2 flex flex-row items-center gap-1 w-96"
+        className="shadow-lg rounded-full border mx-auto p-2 flex flex-row items-center gap-1 w-60"
       >
         <select
           value={avgProductPrice}

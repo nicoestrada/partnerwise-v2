@@ -19,13 +19,17 @@ const links = [
     label: "Home",
   },
   {
+    href: "/about",
+    label: "About",
+  },
+  {
     href: "/pricing",
     label: "Pricing",
   },
-  // {
-  //   href: "/about",
-  //   label: "About",
-  // },
+  {
+    href: "https://partnerwise.tolt.io/login",
+    label: "Affiliate",
+  },  
 ];
 
 const cta = <ButtonAccount />;

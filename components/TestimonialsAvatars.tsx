@@ -29,7 +29,7 @@ const avatars: {
 
 const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-3">
+    <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-3 mt-4">
       {/* AVATARS */}
       <div className={`-space-x-5 avatar-group justy-start`}>
         {avatars.map((image, i) => (
@@ -66,8 +66,7 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
         </div>
 
         <div className="text-base text-base-content/80">
-          <span className="font-semibold text-base-content">4,750+</span> creators
-          use us!
+          <span className="font-semibold text-base-content">Join the community</span>
         </div>
       </div>
     </div>

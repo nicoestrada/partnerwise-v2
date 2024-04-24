@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import config from "@/config";
+import TestimonialsAvatars from "./TestimonialsAvatars";
 
 // The list of your testimonials. It needs 3 items to fill the row.
 const list: {
@@ -11,23 +12,25 @@ const list: {
 }[] = [
   {
     // Optional, use for social media like Twitter. Does not link anywhere but cool to display
-    username: "marclou",
+    username: "juliademolaugc",
     // REQUIRED
-    name: "Marc Lou",
+    name: "Julia",
     // REQUIRED
-    text: "Really easy to use. The tutorials are really useful and explains how everything works. Hope to ship my next project really fast!",
+    text: "A dream collaboration with @partnerwiseio I genuinely love this platform, its so easy to use and really makes pitching so much easier 🔥",
     // Optional, a statically imported image (usually from your public folder—recommended) or a link to the person's avatar. Shows a fallback letter if not provided
-    img: "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_400x400.jpg",
+    img: "https://i.ibb.co/NCnjn5C/julia.jpg",
   },
   {
-    username: "the_mcnaveen",
-    name: "Naveen",
-    text: "Setting up everything from the ground up is a really hard, and time consuming process. What you pay for will save your time for sure.",
+    username: "jennamediaco",
+    name: "Jenna",
+    text: "Nothing better than sharing content for a brand who wants to help out the UGC community! @partnerwiseio is new on the scene and a great way to make some connections with brands!",
+    img: "https://i.ibb.co/CscSsgx/j-Ysl-Mp-G-400x400.jpg"
   },
   {
-    username: "wahab",
-    name: "Wahab Shaikh",
-    text: "Easily saves 15+ hrs for me setting up trivial stuff. Now, I can directly focus on shipping features rather than hours of setting up the same technologies from scratch. Feels like a super power! :D",
+    username: "sociallywitholi",
+    name: "Oli",
+    text: "Loved creating for @partnerwiseio there platform is next level!! Must!! #UGC #ugccommunity #ugccreators",
+    img: "https://i.ibb.co/kB4my5F/9-S7v-JZ5o-400x400.jpg"
   },
 ];
 
@@ -89,9 +92,10 @@ const Testimonials3 = () => {
             <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
               4,750+ UGC creators are already pitching with us!
             </h2>
+            <TestimonialsAvatars />
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
-            Don&apos;t take our word for it. Here&apos;s what they have to say
+            Don&apos;t take our word for it. Here&apos;s what some have to say
             about PartnerWise.
           </p>
         </div>
