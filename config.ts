@@ -3,10 +3,10 @@ import { ConfigProps } from "./types/config";
 
 const config = {
   // REQUIRED
-  appName: "PartnerWise",
+  appName: "PartnerWise - Find Brands for UGC and Collabs",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "Discover the right partner for campaigns, UGC, and sponsorships.",
+    "Find brands for UGC, collabs and sponsorships. Get UGC jobs and free products from brands hiring UGC creators.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
   domainName: "partnerwise.io",
   crisp: {

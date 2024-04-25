@@ -62,7 +62,7 @@ const Header = () => {
         <div className="flex lg:flex-1">
           <Link className="flex items-center gap-2 shrink-0" href="/" title={`${config.appName} homepage`}>
             <Image src={logo} alt={`${config.appName} logo`} className="w-8" placeholder="blur" priority={true} width={32} height={32} />
-            <div className="badge bg-gradient-to-br from-blue-600 to-purple-400 text-white text-md shadow-xl font-medium me-2 px-2.5 py-0.5 rounded-xl dark:bg-gray-100 dark:text-gray-800 absolute ml-12">v2.0</div>  
+            <div className="badge bg-gradient-to-br from-blue-600 to-purple-400 text-white text-md shadow-xl font-medium me-2 px-2.5 py-0.5 rounded-xl absolute ml-12">v2.0</div>  
           </Link>
         </div>
         {/* Conditionally render the SearchBar in the navigation bar when user has scrolled down */}

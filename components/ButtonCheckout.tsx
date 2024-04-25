@@ -42,7 +42,7 @@ const ButtonCheckout = ({
 
   return (
     <button
-      className="btn btn-primary btn-block group hover:shadow-xl"
+      className="btn btn-primary btn-block group hover:shadow-xl text-white"
       onClick={() => handlePayment()}
     > 
       Start now
