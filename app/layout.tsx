@@ -21,6 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <head>
           <PlausibleProvider domain={config.domainName} />
           <GoogleTagManager gtmId="GTM-TKFGJDZK" />
+          <script defer data-domain="partnerwise.io" src="https://plausible.io/js/script.js"></script>
 
         </head>
       )}
