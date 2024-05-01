@@ -5,6 +5,8 @@ import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import "./globals.css";
+import { GoogleTagManager } from '@next/third-parties/google'
+
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -18,6 +20,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       {config.domainName && (
         <head>
           <PlausibleProvider domain={config.domainName} />
+          <GoogleTagManager gtmId="GTM-TKFGJDZK" />
+
         </head>
       )}
       <body>
