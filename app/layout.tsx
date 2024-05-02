@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <PlausibleProvider domain={config.domainName} />
           <GoogleTagManager gtmId="GTM-TKFGJDZK" />
           <script defer data-domain="partnerwise.io" src="https://plausible.io/js/script.js"></script>
-
+          <script async src="https://cdn.tolt.io/tolt.js" data-tolt="acec7d7c-d622-40ba-95ec-8d5b21564e28"></script>
         </head>
       )}
       <body>
