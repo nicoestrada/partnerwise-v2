@@ -1,33 +1,12 @@
-# ShipFast — Typescript
+# PartnerWise.io - Full Stack SaaS
+PartnerWise is a discovery tool used by over 4,800 content creators ranging from microinfluencers to influencers with over 500k followers. 
 
-Hey maker 👋 it's Marc from [ShipFast](https://shipfa.st/docs). Let's get your startup off the ground, FAST ⚡️
+[Launched in Product Hunt](https://www.producthunt.com/products/partnerwise#partnerwise) in August 2023, PartnerWise earns revenue through monthly subscriptions.
 
-<sub>**Watch/Star the repo to be notified when updates are pushed**</sub>
+With my experience as a merchant in e-commerce for over 5+ years now, I recognized the current problem the market has for creators to find and grow partnerships with brands. There are not enough platforms that effectively grant creators with a resource of discovering new potential collaborations. PartnerWise serves this market and constantly reiterates the platform and features based on their feedback. 
 
-## Get Started
+As this is a very young product, it's very much still in its infancy stage. Functionality is prioritized with the creator's experience in mind.
 
-1. Follow the [Get Started Tutorial](https://shipfa.st/docs) to clone the repo and run your local server 💻
+**Building this product from scratch, frontend, backend, data storage, and more, has provided me with a priceless perspective on decision making and the importance of writing effective code that is used by real people.**
 
-<sub>**Looking for the /pages router version?** Use this [documentation](https://shipfa.st/docs-old) instead</sub>
-
-2. Follow the [Ship In 5 Minutes Tutorial](https://shipfa.st/docs/tutorials/ship-in-5-minutes) to learn the foundation and ship your app quickly ⚡️
-
-## Links
-
-- [📚 Documentation](https://shipfa.st/docs)
-- [📣 Updates](https://shipfast.beehiiv.com/)
-- [🧑‍💻 Discord](https://shipfa.st/dashboard)
-
-## Support
-
-Reach out to me on [Twitter](https://twitter.com/marc_louvion) or marc@shipfa.st
-
-\_
-
-Let's ship it, FAST ⚡️
-
-P.S.
-
-- Want to showcase your startups? Get your [Indie Page](https://indiepa.ge?ref=shipfast_readme) and share your entrepreneur's journey. Join 3,132 founders ⭐️
-- Don't get banned from Stripe for 1 dispute. Use [ByeDispute](https://byedispute.com/?ref=shipfast_readme) to prevent them from happenening 🛡️
-- Make your launch go viral and get your first customers with [LaunchViral](https://launchvir.al/?ref=shipfast_readme) 🚀
+If you have any questions or would like to contribute, [don't hesitate to reach out!](mailto:estrada@hey.com) or fork this repo and make a PR.
